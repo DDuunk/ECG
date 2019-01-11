@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class MqttSettingsFragment extends Fragment implements MqttSettingsCodeReaderFragment.OnFragmentInteractionListener, MqttManager.MqttManagerListener {
+public class MqttSettingsFragment extends Fragment implements MqttManager.MqttManagerListener {
 
     // Log
     private final static String TAG = MqttSettingsFragment.class.getSimpleName();
@@ -287,21 +287,6 @@ public class MqttSettingsFragment extends Fragment implements MqttSettingsCodeRe
             qrConfigButton.setOnClickListener(v -> {
                 // Dismiss keyboard
                 KeyboardUtils.dismissKeyboard(v);
-
-                // Launch reader
-                FragmentActivity activity = getActivity();
-                if (activity != null) {
-                    FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                    if (fragmentManager != null) {
-                        MqttSettingsCodeReaderFragment fragment = MqttSettingsCodeReaderFragment.newInstance();
-                        fragment.setTargetFragment(this, 0);
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
-                                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
-                                .replace(R.id.contentLayout, fragment, "MqttSettingsCodeReader");
-                        fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.commit();
-                    }
-                }
             });
             // Refresh UI
             updateStatusUI();
@@ -368,16 +353,6 @@ public class MqttSettingsFragment extends Fragment implements MqttSettingsCodeRe
                 break;
         }
         mStatusTextView.setText(context.getString(statusStringId));
-    }
-
-    @Override
-    public void onPasswordUpdated(String password) {
-        mPasswordEditText.setText(password);
-        Context context = getContext();
-        if (context != null) {
-            MqttSettings.setPassword(context, password);
-        }
-        mPasswordEditText.requestFocus();
     }
 
     @Override

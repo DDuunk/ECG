@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dduunk.ecg.R;
-import com.dduunk.ecg.app.neopixel.NeopixelFragment;
 import com.dduunk.ecg.ble.central.BlePeripheral;
 import com.dduunk.ecg.ble.central.BlePeripheralBattery;
 import com.dduunk.ecg.ble.central.BlePeripheralDfu;
