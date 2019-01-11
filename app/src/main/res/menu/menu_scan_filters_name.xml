@@ -24,4 +24,5 @@
             android:id="@+id/scanfilter_name_insensitive"
             android:title="@string/scanner_filter_name_settings_insensitive" />
     </group>
+
 </menu>

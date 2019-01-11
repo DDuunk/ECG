@@ -10,10 +10,6 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content" />
 
-    <!--
-            android:text="12:22:44 RX"
-    -->
-
     <TextView
         android:id="@+id/dataTextView"
         android:layout_width="0dp"

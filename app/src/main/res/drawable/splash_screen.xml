@@ -11,5 +11,7 @@
         <bitmap
             android:gravity="center"
             android:src="@drawable/info_adafruit_logo" />
+
     </item>
+
 </layer-list>
