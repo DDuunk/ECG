@@ -3,14 +3,14 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.adafruit.bluefruit.le.connect"
+        applicationId "com.dduunk.ecg"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
-        resValue "string", "app_name", "Bluefruit"
+        resValue "string", "app_name", "ECG"
     }
 
     compileOptions {
@@ -63,7 +63,6 @@ dependencies {
 
     //  Architecture Components
     implementation 'android.arch.lifecycle:extensions:1.1.1'
-    // compile "android.arch.lifecycle:compiler:1.0.0-rc1"
     implementation 'android.arch.lifecycle:common-java8:1.1.1'
 
     // Mqtt
@@ -82,6 +81,6 @@ dependencies {
     betaImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
-    
+
     testImplementation 'junit:junit:4.12'
 }
