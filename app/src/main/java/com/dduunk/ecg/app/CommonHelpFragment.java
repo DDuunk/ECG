@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.dduunk.ecg.R;
 
 public class CommonHelpFragment extends Fragment {
+
     private static final String ARG_TITLE = "title";
     private static final String ARG_TEXT = "text";
 
@@ -65,14 +66,5 @@ public class CommonHelpFragment extends Fragment {
         // UI
         TextView infoTextView = view.findViewById(R.id.infoTextView);
         infoTextView.setText(mText);
-
-        /*
-        WebView infoWebView = view.findViewById(R.id.infoWebView);
-        if (infoWebView != null) {
-            infoWebView.setBackgroundColor(Color.TRANSPARENT);
-            infoWebView.loadUrl("file:///android_asset/help/" + mText);
-        }*/
-
     }
-
 }

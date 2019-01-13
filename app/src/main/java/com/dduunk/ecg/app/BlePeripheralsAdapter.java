@@ -274,7 +274,6 @@ class BlePeripheralsAdapter extends RecyclerView.Adapter<BlePeripheralsAdapter.V
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         final BlePeripheral blePeripheral = mBlePeripherals.get(position);
-
         final String identifier = blePeripheral.getIdentifier();
 
         // Main view

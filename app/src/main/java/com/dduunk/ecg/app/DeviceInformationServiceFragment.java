@@ -96,7 +96,6 @@ public class DeviceInformationServiceFragment extends Fragment {
             DeviceInformationServiceAdapter adapter = new DeviceInformationServiceAdapter(context, model);
             mRecyclerView.setAdapter(adapter);
         }
-
     }
 
     private static class DeviceInformationServiceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

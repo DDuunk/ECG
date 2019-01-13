@@ -34,14 +34,13 @@ import com.dduunk.ecg.utils.DialogUtils;
 import com.dduunk.ecg.utils.LocalizationManager;
 
 public class PeripheralModeFragment extends Fragment {
+
     // Constants
     private final static String TAG = PeripheralModeFragment.class.getSimpleName();
-    //private final static int kRssiRefreshInterval = 300; // in milliseconds
 
     // UI
     private RecyclerView mRecyclerView;
 
-    // region Fragment lifecycle
     public static PeripheralModeFragment newInstance() {
         return new PeripheralModeFragment();
     }
@@ -63,7 +62,6 @@ public class PeripheralModeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Retain this fragment across configuration changes
         setRetainInstance(true);
     }
@@ -80,7 +78,6 @@ public class PeripheralModeFragment extends Fragment {
 
         final Context context = getContext();
         if (context != null) {
-
             // Peripherals recycler view
             mRecyclerView = view.findViewById(R.id.recyclerView);
             DividerItemDecoration itemDecoration = new DividerItemDecoration(context, DividerItemDecoration.VERTICAL);
@@ -89,7 +86,6 @@ public class PeripheralModeFragment extends Fragment {
             itemDecoration.setDrawable(lineSeparatorDrawable);
             mRecyclerView.addItemDecoration(itemDecoration);
 
-            //   recyclerView.setHasFixedSize(true);        // Improve performance
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
             mRecyclerView.setLayoutManager(layoutManager);
         }
@@ -106,14 +102,12 @@ public class PeripheralModeFragment extends Fragment {
 
             model.getStartAdvertisingErrorCode().observe(this, errorCode -> {
                 Log.d(TAG, "Advertising error: " + errorCode);
-
                 if (errorCode != null) {
                     int messageId = errorCode == AdvertiseCallback.ADVERTISE_FAILED_DATA_TOO_LARGE ? R.string.peripheral_advertising_starterror_toolarge : R.string.peripheral_advertising_starterror_undefined;
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     AlertDialog dialog = builder.setTitle(R.string.dialog_error).setMessage(messageId)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show();
+                            .setPositiveButton(android.R.string.ok, null).show();
                     DialogUtils.keepDialogOnOrientationChanges(dialog);
                 }
             });
@@ -124,7 +118,6 @@ public class PeripheralModeFragment extends Fragment {
                 if (activity2 != null) {
                     FragmentManager fragmentManager = activity2.getSupportFragmentManager();
                     if (fragmentManager != null) {
-
                         Fragment fragment = null;
                         String fragmentTag = null;
                         switch (index) {
@@ -133,7 +126,6 @@ public class PeripheralModeFragment extends Fragment {
                                 fragmentTag = "DeviceInformationService";
                                 break;
                             case 1:
-
                                 fragment = UartServiceFragment.newInstance();
                                 fragmentTag = "UartService";
                                 break;
@@ -219,7 +211,6 @@ public class PeripheralModeFragment extends Fragment {
         private PeripheralModeViewModel mModel;
         private Listener mListener;
 
-        //
         PeripheralModeAdapter(@NonNull Context context, @NonNull PeripheralModeViewModel viewModel, @NonNull Listener listener) {
             mContext = context;
             mModel = viewModel;
@@ -243,7 +234,6 @@ public class PeripheralModeFragment extends Fragment {
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            //Log.d(TAG, "onCreateViewHolder type: " + viewType);
             switch (viewType) {
                 case kCellType_SectionTitle: {
                     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_common_section_item, parent, false);
@@ -275,7 +265,6 @@ public class PeripheralModeFragment extends Fragment {
                     SectionViewHolder sectionViewHolder = (SectionViewHolder) holder;
                     sectionViewHolder.titleTextView.setText(localizationManager.getString(mContext, position == kAdvertisingCellsStartPosition - 1 ? "peripheral_advertisinginfo" : "peripheral_services"));
                     break;
-
                 case kCellType_AdvertisingInfoCell:
                     AdvertisingInfoViewHolder advertisingInfoViewHolder = (AdvertisingInfoViewHolder) holder;
                     advertisingInfoViewHolder.titleTextView.setText(R.string.peripheral_localname);
@@ -303,9 +292,7 @@ public class PeripheralModeFragment extends Fragment {
                             mModel.setIncludeDeviceName(mContext, b);
                         }
                     });
-
                     break;
-
                 case kCellType_ServicesCell:
                     final int servicePosition = position - kServiceCellsStartPosition;
                     ServiceViewHolder serviceViewHolder = (ServiceViewHolder) holder;
@@ -320,7 +307,6 @@ public class PeripheralModeFragment extends Fragment {
                     serviceViewHolder.nameTextView.setText(service.getName());
                     serviceViewHolder.mainViewGroup.setOnClickListener(view -> mListener.onServiceSelected(servicePosition));
                     break;
-
                 default:
                     Log.e(TAG, "Unknown cell type");
                     break;

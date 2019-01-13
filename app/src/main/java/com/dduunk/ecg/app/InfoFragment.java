@@ -44,6 +44,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class InfoFragment extends ConnectedPeripheralFragment {
+
     // Log
     private final static String TAG = InfoFragment.class.getSimpleName();
 
@@ -124,7 +125,6 @@ public class InfoFragment extends ConnectedPeripheralFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         FragmentActivity activity = getActivity();
-
         switch (item.getItemId()) {
             case R.id.action_help:
                 if (activity != null) {

@@ -56,8 +56,6 @@ public class AboutFragment extends Fragment {
         }
     }
 
-
-    // region Action Bar
     protected void setActionBarTitle(int titleStringId) {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null) {
@@ -68,6 +66,4 @@ public class AboutFragment extends Fragment {
             }
         }
     }
-
-
 }

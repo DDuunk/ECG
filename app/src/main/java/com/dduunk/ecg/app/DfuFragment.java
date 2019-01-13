@@ -42,6 +42,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DfuFragment extends ConnectedPeripheralFragment implements DfuFilePickerFragment.OnFragmentInteractionListener {
+
     // Log
     private final static String TAG = DfuFragment.class.getSimpleName();
 
@@ -60,7 +61,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
         // Required empty public constructor
     }
 
-    // region Fragment Lifecycle
     public static DfuFragment newInstance(@Nullable String singlePeripheralIdentifier) {
         DfuFragment fragment = new DfuFragment();
         fragment.setArguments(createFragmentArgs(singlePeripheralIdentifier));
@@ -204,8 +204,7 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
                 } else {
                     Log.d(TAG, "Warning: no releases found for this board");
                 }
-            }
-            else {
+            } else {
                 Log.d(TAG, "Warning: no deviceDfuInfo found");
             }
         } else {
@@ -233,7 +232,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
 
     }
 
-    // region DfuFilePickerFragment.OnFragmentInteractionListener
     @Override
     public void onDfuFilePickerStartUpdate(@NonNull ReleasesParser.BasicVersionInfo versionInfo) {
         startUpdate(versionInfo);
@@ -244,7 +242,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
         dismissFilePickerDialog();
     }
 
-    // region Adapter
     private static class DfuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // Constants
         private static final int kCellType_SectionTitle = 0;
@@ -293,7 +290,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
             } else {
                 result = kCellType_Bootloader;
             }
-
             return result;
         }
 
@@ -353,7 +349,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
                     versionViewHolder.descriptionTextView.setText(firmwareString);
                     break;
                 }
-
                 case kCellType_Firmware: {
                     int row = position - kFirmwareCellsStartPosition;
                     ReleasesParser.FirmwareInfo firmwareInfo = getFirmwareInfoForPosition(row);
@@ -367,7 +362,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
                     }
                     break;
                 }
-
                 case kCellType_CustomFirmware: {
                     CustomVersionViewHolder filePickerViewHolder = (CustomVersionViewHolder) holder;
                     filePickerViewHolder.chooseButton.setOnClickListener(view -> mListener.onCustomFirmwareSelected());
@@ -379,7 +373,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
         @SuppressWarnings("UnnecessaryLocalVariable")
         @Override
         public int getItemCount() {
-
             int numItems = 0;
             if (mDeviceDfuInfo != null) {
                 final int firstSectionItems = 1 + 1; // title + item
@@ -433,7 +426,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
                     currentRow += numReleases;
                 }
             }
-
             return firmwareInfo;
         }
 
@@ -476,7 +468,4 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
             }
         }
     }
-
-
-
 }
