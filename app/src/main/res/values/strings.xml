@@ -211,7 +211,6 @@
     <string name="uart_mqtt_settings_cleansession">Clean session:</string>
     <string name="uart_mqtt_settings_sslconnection">SSL connection:</string>
     <string name="uart_mqtt_qrconfig_action">Scan Code</string>
-    <string name="uart_mqtt_qrconfig">Configure using AdafruitIO QR-Code</string>
     <string name="uart_mqtt_qrconfig_hint">Pinch or stretch to zoom the camera image</string>
     <string name="uart_mqtt_qrconfig_instructions">Point your device camera to the QR-Code and center it on the preview image\n(The code will be automatically read when is visible)</string>
 
