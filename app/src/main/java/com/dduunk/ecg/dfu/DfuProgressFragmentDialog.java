@@ -19,11 +19,8 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
     // Interface
     public interface Listener {
         void onDeviceDisconnected(final String deviceAddress);
-
         void onDfuCompleted(final String deviceAddress);
-
         void onDfuAborted(final String deviceAddress);
-
         void onError(final String deviceAddress, final int error, final int errorType, final String message);
     }
 
@@ -34,7 +31,6 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
     private String mBlePeripheralAddress;
     private Listener mListener;
 
-    // region Fragment Lifecycle
     public static DfuProgressFragmentDialog newInstance(@NonNull String blePeripheralAddress, @Nullable String message) {
         DfuProgressFragmentDialog fragment = new DfuProgressFragmentDialog();
         Bundle args = new Bundle();
@@ -59,11 +55,7 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
         super.onAttach(context);
         if (context instanceof Listener) {
             mListener = (Listener) context;
-        } /*else if (getTargetFragment() instanceof Listener) {
-            mListener = (Listener) getTargetFragment();
-        } else if (getTargetFragment() != null && getTargetFragment().getActivity() instanceof Listener) {
-            mListener = (Listener) getTargetFragment().getActivity();
-        } */else {
+        } else {
             throw new RuntimeException(context.toString() + " must implement Listener");
         }
     }
@@ -77,7 +69,6 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
     @Override
     public void onResume() {
         super.onResume();
-
         assert (mBlePeripheralAddress != null);
         DfuServiceListenerHelper.registerProgressListener(getContext(), mDfuProgressListener, mBlePeripheralAddress);
     }
@@ -85,12 +76,8 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
     @Override
     public void onPause() {
         super.onPause();
-
         DfuServiceListenerHelper.unregisterProgressListener(getContext(), mDfuProgressListener);
     }
-
-
-    // region DfuProgressListener
 
     private final DfuProgressListener mDfuProgressListener = new DfuProgressListenerAdapter() {
         @Override
@@ -117,15 +104,12 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
         @Override
         public void onEnablingDfuMode(final String deviceAddress) {
             Log.d(TAG, "onEnablingDfuMode");
-
             setMessage(R.string.dfu_status_switching_to_dfu);
         }
 
         @Override
         public void onProgressChanged(final String deviceAddress, final int percent, final float speed, final float avgSpeed, final int currentPart, final int partsTotal) {
             Context context = getContext();
-
-            //Log.d(TAG, "onProgressChanged: " + percent);
             if (context != null) {
                 setIndeterminate(false);
                 setProgress(percent);
@@ -179,6 +163,4 @@ public class DfuProgressFragmentDialog extends ProgressFragmentDialog {
             }
         }
     };
-
-
 }

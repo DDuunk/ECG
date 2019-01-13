@@ -30,7 +30,6 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
     // Interface
     public interface OnFragmentInteractionListener {
         void onDfuFilePickerStartUpdate(@NonNull ReleasesParser.BasicVersionInfo versionInfo);
-
         void onDfuFilePickerDismissed();
     }
 
@@ -89,25 +88,19 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
                                 Toast.makeText(getActivity(), R.string.dfu_pickfiles_error_hexmissing, Toast.LENGTH_LONG).show();
                                 mListener.onDfuFilePickerDismissed();
                             }
-                        })
-                        .setNegativeButton(android.R.string.cancel, (dialog, id) -> mListener.onDfuFilePickerDismissed());
+                        }).setNegativeButton(android.R.string.cancel, (dialog, id) -> mListener.onDfuFilePickerDismissed());
                 mDialog = builder.create();
-
                 updateUI();
             }
         }
-
         return mDialog;
     }
 
     @Override
     public void onDestroyView() {
         Dialog dialog = getDialog();
-
-        // Work around bug: http://code.google.com/p/android/issues/detail?id=17423
         if ((dialog != null) && getRetainInstance())
             dialog.setDismissMessage(null);
-
         super.onDestroyView();
     }
 
@@ -136,7 +129,6 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
 
         if (resultCode == RESULT_OK) {
             Uri uri = data.getData();
-
             if (requestCode == kActivityRequestCode_SelectFile_Hex) {
                 mVersionInfo.hexFileUrl = uri;
             } else if (requestCode == kActivityRequestCode_SelectFile_Ini) {
@@ -159,7 +151,6 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
     public String getFilenameFromUri(@NonNull Context context, @Nullable Uri uri) {
         String result = null;
 
-        // Based on: https://stackoverflow.com/questions/5568874/how-to-extract-the-file-name-from-uri-returned-from-intent-action-get-content
         if (uri != null) {
             if (uri.getScheme().equals("content")) {
                 try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null)) {
@@ -176,11 +167,8 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
                 }
             }
         }
-
         return result;
     }
-
-    // region FileExplorer
 
     private void openFileChooser(int operationId) {
 
@@ -190,11 +178,6 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
         }
 
         final Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        /*
-        final int fileType = DfuService.TYPE_APPLICATION;
-        String types = fileType == DfuService.TYPE_AUTO ? DfuService.MIME_TYPE_ZIP : DfuService.MIME_TYPE_OCTET_STREAM;
-        types += ";application/mac-binhex";    // hex is recognized as this mimetype (for dropbox)
-        */
         intent.setType("*/*");      // Everything to avoid problems with GoogleDrive
 
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -210,6 +193,4 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
                     .show();
         }
     }
-
-
 }

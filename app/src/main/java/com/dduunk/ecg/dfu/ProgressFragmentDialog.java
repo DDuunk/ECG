@@ -55,8 +55,6 @@ public class ProgressFragmentDialog extends AppCompatDialogFragment {
     @Override
     public void onDestroyView() {
         Dialog dialog = getDialog();
-
-        // Work around bug: http://code.google.com/p/android/issues/detail?id=17423
         if ((dialog != null) && getRetainInstance())
             dialog.setDismissMessage(null);
 
@@ -72,17 +70,9 @@ public class ProgressFragmentDialog extends AppCompatDialogFragment {
         super.onCancel(dialog);
     }
 
-
-
     public void setOnCancelListener(DialogInterface.OnCancelListener listener) {
         mCancelListener = listener;
     }
-
-    /*
-    public ProgressDialog getDialog() {
-        return mDialog;
-    }
-    */
 
     public void setMessage(int messageId) {
         Context context = getContext();

@@ -22,7 +22,6 @@ public class NotificationActivity extends Activity {
             }
             startActivity(intent);
         }
-
         // Now finish, which will drop the user in to the activity that was at the top of the task stack
         finish();
     }

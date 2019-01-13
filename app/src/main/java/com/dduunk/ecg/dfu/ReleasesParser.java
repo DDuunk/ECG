@@ -48,7 +48,6 @@ public class ReleasesParser {
     public static class BootloaderInfo extends BasicVersionInfo {
     }
 
-    // region Actions
     public static Map<String, BoardInfo> parseReleasesXml(@Nullable String xmlString, boolean showBetaVersions) {
         Map<String, BoardInfo> boardReleases = new LinkedHashMap<>();
 
@@ -201,6 +200,4 @@ public class ReleasesParser {
             return Integer.signum(vals1.length - vals2.length);
         }
     }
-
-
 }
