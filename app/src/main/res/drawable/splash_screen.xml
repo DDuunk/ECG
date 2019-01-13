@@ -3,15 +3,15 @@
 
     <item android:drawable="@color/background" />
 
-    <item
+    <!--<item
         android:bottom="60dp"
         android:left="20dp"
         android:right="20dp">
 
         <bitmap
             android:gravity="center"
-            android:src="@drawable/info_adafruit_logo" />
+            android:src="@drawable/IMAGE" />
 
-    </item>
+    </item>-->
 
 </layer-list>
