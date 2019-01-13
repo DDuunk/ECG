@@ -434,12 +434,12 @@ public class ScannerFragment extends Fragment implements ScannerStatusFragmentDi
         if (activity != null) {
             activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
             // Automatically starts scanning
-            boolean isDfuInProgress = activity instanceof MainActivity && ((MainActivity) activity).isIsDfuInProgress();
-            if (!isDfuInProgress) {
+            //boolean isDfuInProgress = activity instanceof MainActivity && ((MainActivity) activity).isIsDfuInProgress();
+           // if (!isDfuInProgress) {
                 startScanning();
-            } else {
-                Log.d(TAG, "Don't start scanning because DFU  is in progress");
-            }
+            //} else {
+            //    Log.d(TAG, "Don't start scanning because DFU  is in progress");
+            //}
         }
     }
 
@@ -629,7 +629,7 @@ public class ScannerFragment extends Fragment implements ScannerStatusFragmentDi
                     .setTitle(R.string.autoupdate_title)
                     .setMessage(message)
                     .setPositiveButton(R.string.autoupdate_startupdate, (dialog, which) -> {
-                        startFirmwareUpdate(blePeripheral, latestRelease);
+                        //startFirmwareUpdate(blePeripheral, latestRelease);
                     })
                     .setNeutralButton(R.string.autoupdate_later, (dialog, which) -> {
                         if (mListener != null) {
@@ -647,16 +647,6 @@ public class ScannerFragment extends Fragment implements ScannerStatusFragmentDi
             if (mListener != null) {
                 mListener.startPeripheralModules(blePeripheral.getIdentifier());
             }
-        }
-    }
-
-    private void startFirmwareUpdate(@NonNull BlePeripheral blePeripheral, @NonNull ReleasesParser.FirmwareInfo firmwareInfo) {
-        removeConnectionStateDialog();       // hide current dialogs because software update will display a dialog
-        mScannerViewModel.stop();
-        FragmentActivity activity = getActivity();
-        if (activity != null && activity instanceof MainActivity) {
-            MainActivity mainActivity = (MainActivity) activity;
-            mainActivity.startUpdate(blePeripheral, firmwareInfo);
         }
     }
 

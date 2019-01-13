@@ -41,7 +41,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DfuFragment extends ConnectedPeripheralFragment implements DfuFilePickerFragment.OnFragmentInteractionListener {
+public class DfuFragment extends ConnectedPeripheralFragment {
 
     // Log
     private final static String TAG = DfuFragment.class.getSimpleName();
@@ -108,7 +108,7 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
             mAdapter = new DfuAdapter(context, mBlePeripheral, new DfuAdapter.Listener() {
                 @Override
                 public void onReleaseSelected(@NonNull ReleasesParser.BasicVersionInfo versionInfo, @Nullable DfuUpdater.DeviceDfuInfo deviceDfuInfo) {
-                    startUpdate(versionInfo);
+                    //startUpdate(versionInfo);
                 }
 
                 @Override
@@ -220,26 +220,6 @@ public class DfuFragment extends ConnectedPeripheralFragment implements DfuFileP
             mFilePickerFragment.dismiss();
             mFilePickerFragment = null;
         }
-    }
-
-
-    private void startUpdate(@NonNull ReleasesParser.BasicVersionInfo versionInfo) {
-        FragmentActivity activity = getActivity();
-        if (activity != null && activity instanceof MainActivity) {
-            MainActivity mainActivity = (MainActivity) activity;
-            mainActivity.startUpdate(mBlePeripheral, versionInfo);
-        }
-
-    }
-
-    @Override
-    public void onDfuFilePickerStartUpdate(@NonNull ReleasesParser.BasicVersionInfo versionInfo) {
-        startUpdate(versionInfo);
-    }
-
-    @Override
-    public void onDfuFilePickerDismissed() {
-        dismissFilePickerDialog();
     }
 
     private static class DfuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
