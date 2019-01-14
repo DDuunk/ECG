@@ -29,10 +29,6 @@ import com.dduunk.ecg.ble.BleUtils;
 import com.dduunk.ecg.ble.central.BleManager;
 import com.dduunk.ecg.ble.central.BlePeripheral;
 import com.dduunk.ecg.utils.DialogUtils;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.security.ProviderInstaller;
 
 public class MainActivity extends AppCompatActivity implements ScannerFragment.ScannerFragmentListener, PeripheralModulesFragment.PeripheralModulesFragmentListener {
 
@@ -63,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements ScannerFragment.S
         if (savedInstanceState == null) {
             // Set mainmenu fragment
             mMainFragment = MainFragment.newInstance();
-            fragmentManager.beginTransaction()
-                    .add(R.id.contentLayout, mMainFragment, "Main").commit();
+            fragmentManager.beginTransaction().add(R.id.contentLayout, mMainFragment, "Main").commit();
         } else {
             hasUserAlreadyBeenAskedAboutBluetoothStatus=savedInstanceState.getBoolean("hasUserAlreadyBeenAskedAboutBluetoothStatus");
             mMainFragment = (MainFragment) fragmentManager.findFragmentByTag("Main");
@@ -81,18 +76,6 @@ public class MainActivity extends AppCompatActivity implements ScannerFragment.S
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putBoolean("hasUserAlreadyBeenAskedAboutBluetoothStatus", hasUserAlreadyBeenAskedAboutBluetoothStatus);
-    }
-
-    private void updateAndroidSecurityProvider(Activity callingActivity) {
-        try {
-            ProviderInstaller.installIfNeeded(this);
-        } catch (GooglePlayServicesRepairableException e) {
-            // Thrown when Google Play Services is not installed, up-to-date, or enabled
-            // Show dialog to allow users to install, update, or otherwise enable Google Play services.
-            GooglePlayServicesUtil.getErrorDialog(e.getConnectionStatusCode(), callingActivity, 0);
-        } catch (GooglePlayServicesNotAvailableException e) {
-            Log.e("SecurityException", "Google Play Services not available.");
-        }
     }
 
     @Override

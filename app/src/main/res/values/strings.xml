@@ -104,14 +104,6 @@
     <string name="peripheral_dis_firmwarerevision">Firmware Revision</string>
     <string name="peripheral_dis_softwarerevision">Software Revision</string>
 
-    <!-- AutoUpdate Firmware -->
-    <string name="autoupdate_title">Update available</string>
-    <string name="autoupdate_description_format" formatted="false">Software version %s is available</string>
-    <string name="autoupdate_update">Go to updates</string>
-    <string name="autoupdate_startupdate">Start update</string>
-    <string name="autoupdate_later">Ask later</string>
-    <string name="autoupdate_ignore">Ignore</string>
-
     <!-- Peripheral Details -->
     <string name="peripheraldetails_select">Connect to a peripheral from the list on the left</string>
     <string name="peripheraldetails_connecting">Connecting&#8230;</string>
@@ -227,46 +219,6 @@
     <string name="plotter_nodata">No chart data available</string>
     <string name="plotter_help_title">Plotter</string>
     <string name="plotter_help_text">• The \'Plotter\' utility can be used to plot incoming numeric data in a chart, without having to create a custom plotter code or application. It behaves similarly to the Serial Plotter in recent versions of the Arduino IDE.\n\n•  To plot one or more data streams to the plotter, send your numeric data in CSV format with one of the following seperators:\n\',\' - Comma (0x2C)\n\' \' - Space (0x20)\n\';\' - Semicolon (0x3B)\nHorizontal Tab (0x09), \'\\t\' in code\n\nEach unique set of data samples must be terminated by a LINE FEED character (0x0A), which is usually represented as \'\\n\' in code.\n\n• Only numeric data should be sent over the BLE UART connection(s).</string>
-
-    <!-- Dfu -->
-    <string name="dfu_tab_title">Updates</string>
-    <string name="dfu_navigation_title_format" formatted="false">Updates - %s</string>
-    <string name="dfu_currentversion_title">Installed Firmware</string>
-    <string name="dfu_firmwarereleases_title">Firmware Releases</string>
-    <string name="dfu_bootloaderreleases_title">Bootloader Releases</string>
-    <string name="dfu_firmware_format" formatted="false">Firmware: %s</string>
-    <string name="dfu_betaversion_format" formatted="false">Beta Version %s</string>
-    <string name="dfu_version_format" formatted="false">Version %s</string>
-    <string name="dfu_choose_firmware_action">Use Custom Firmware</string>
-    <string name="dfu_pickfiles_customfirmware_title">Select Custom Firmware</string>
-    <string name="dfu_pickfiles_custombootloader_title">Select Custom Bootloader</string>
-    <string name="dfu_pickfiles_hex_title">Hex File:</string>
-    <string name="dfu_pickfiles_init_title">Init File:</string>
-    <string name="dfu_pickfiles_hex_action">Choose</string>
-    <string name="dfu_pickfiles_init_action">Choose</string>
-    <string name="dfu_pickfiles_file_empty">&lt;No file selected&gt;</string>
-    <string name="dfu_pickfiles_update_action">Start Update</string>
-    <string name="dfu_pickfiles_error_hexmissing">At least an Hex file should be selected</string>
-    <string name="dfu_pickfiles_error_noexplorer_title">Unavailable</string>
-    <string name="dfu_pickfiles_error_noexplorer_message">File browser app not has not been found on your device. You should install an app like Dropbox, GoogleDrive…</string>
-    <string name="dfu_install_action_title_format" formatted="false">Install firmware version %s?</string>
-    <string name="dfu_install_action_message">The firmware will be downloaded and updated. Please wait until the process finishes before disconnecting the peripheral</string>
-    <string name="dfu_unabletoupdate_bootloader_format" formatted="false">This firmware update is not compatible with your bootloader. You need to update your bootloader to version %s before installing this firmware release %s</string>
-    <string name="dfu_disnotavailable">Device Information Service not found. Unable to peform an OTA DFU update</string>
-    <string name="dfu_dfunotavailable">No DFU Service found on device</string>
-    <string name="dfu_legacybootloader">The legacy bootloader on this device is not compatible with this application</string>
-    <string name="dfu_error_invalidfirmware">Firmware files not valid</string>
-    <string name="dfu_error_bluetootherror">Bluetooth not ready</string>
-    <string name="dfu_updatecompleted_message">Update completed successfully</string>
-    <string name="dfu_updatecancelled_message">Update cancelled</string>
-    <string name="dfu_updateaborted_message">Update aborted</string>
-    <string name="dfu_download_hex_message">Downloading hex file</string>
-    <string name="dfu_download_init_message">Downloading init file</string>
-    <string name="dfu_download_firmware_message">Downloading firmware</string>
-    <string name="dfu_download_bootloader_message">Downloading bootloader</string>
-    <string name="dfu_download_error_message">Error downloading files. Check your internet connection and try again.</string>
-    <string name="dfu_help_title">Firmware Updates</string>
-    <string name="dfu_help_text">Instructions:\n\n• Select one of the updates availables for the peripheral\n\n• Use specific "hex" and "init" files to update your device. Please take into account that this could brick the peripheral if the firmware is not compatible</string>
 
     <!-- Common -->
     <string name="dialog_ok">OK</string>
