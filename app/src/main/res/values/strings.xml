@@ -221,18 +221,8 @@
     <string name="plotter_help_text">• The \'Plotter\' utility can be used to plot incoming numeric data in a chart, without having to create a custom plotter code or application. It behaves similarly to the Serial Plotter in recent versions of the Arduino IDE.\n\n•  To plot one or more data streams to the plotter, send your numeric data in CSV format with one of the following seperators:\n\',\' - Comma (0x2C)\n\' \' - Space (0x20)\n\';\' - Semicolon (0x3B)\nHorizontal Tab (0x09), \'\\t\' in code\n\nEach unique set of data samples must be terminated by a LINE FEED character (0x0A), which is usually represented as \'\\n\' in code.\n\n• Only numeric data should be sent over the BLE UART connection(s).</string>
 
     <!-- Common -->
-    <string name="dialog_ok">OK</string>
-    <string name="dialog_cancel">Cancel</string>
     <string name="dialog_error">Error</string>
-    <string name="dialog_notice">Notice</string>
-    <string name="dialog_dontshowagain">Don\'t show again</string>
     <string name="common_help_action">Help</string>
-
-    <!-- About -->
-    <string name="about_title">About</string>
-    <string name="about_app_name">Bluefruit LE Connect</string>
-    <string name="about_android_text">A detailed guide to using this app can be found here:\nhttps://learn.adafruit.com/bluefruit-le-connect-for-ios\n\nConfigure your Bluefruit LE hardware using instructions found here:\nhttp://www.adafruit.com/bluefruitle\n\nDrag the table down and release to clear the list of found peripherals and begin scanning\n\nTap a row in the table to view a peripheral\'s advertisement data.\n\nEach peripheral\'s Received Signal Strength (RSSI) is displayed to the left of its name.\n\nTap a row\'s connect button to connect the corresponding device in one of the available modes:\n\n• Info - displays peripheral services&amp;characteristics\n\n• UART - basic terminal, send&amp;receive data \n\n• Pin I/O - uses Bluefruit\'s UART to control Arduino running BLEFirmata sketch:\nhttps://learn.adafruit.com/getting-started-with-the-nrf8001-bluefruit-le-breakout/software-bluefruit-firmata\n\n• Controller - streams sensor data from your iOS device to Bluefruit LE over UART\n\n• Plotter - can be used to plot incoming numeric data in a chart\n\n• Updates - update device firmware\n\n\n\nAcknowledgements\n\nPortions of this Software may utilize the following copyrighted material, the use of which is hereby acknowledged. \n\nAndroid-DFU-Library\nCopyright &#169;&gt; 2015, Nordic Semiconductor\nhttps://github.com/NordicSemiconductor/Android-DFU-Library\n\nAndroid-Scanner-Compat-Library\nCopyright &#169;&gt; 2015, Nordic Semiconductor\nhttps://github.com/NordicSemiconductor/Android-Scanner-Compat-Library\n\nEclipse Paho\nhttps://eclipse.org/paho/clients/java/\n\nMPAndroidChart\nhttps://github.com/PhilJay/MPAndroidChart\n\nAndroid Vision Sample for Barcode Reading\nCopyright &#169;&gt; The Android Open Source Project\nLicensed under the Apache License, Version 2.0</string>
-    <string name="controller_sensor_quaternion">Quaternion</string>
     <string name="controller_module_pad">Control Pad</string>
 
 </resources>

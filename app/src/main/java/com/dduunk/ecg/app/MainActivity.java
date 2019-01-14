@@ -117,17 +117,6 @@ public class MainActivity extends AppCompatActivity implements ScannerFragment.S
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.action_about:
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                if (fragmentManager != null) {
-                    AboutFragment fragment = AboutFragment.newInstance();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
-                            .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
-                            .replace(R.id.contentLayout, fragment, "About");
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
