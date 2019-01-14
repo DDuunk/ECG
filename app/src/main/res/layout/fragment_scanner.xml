@@ -144,8 +144,14 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lineSeparator"/>
 
     <!-- MultiConnect -->
+
+    <!-- Scanned devices -->
     <LinearLayout
         android:id="@+id/multiConnectView"
         android:layout_width="match_parent"
@@ -228,7 +234,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Scanned devices -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lineSeparator"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
