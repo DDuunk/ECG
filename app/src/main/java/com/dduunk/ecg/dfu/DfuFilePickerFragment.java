@@ -171,7 +171,6 @@ public class DfuFilePickerFragment extends AppCompatDialogFragment {
     }
 
     private void openFileChooser(int operationId) {
-
         Context context = getContext();
         if (context == null) {
             return;
