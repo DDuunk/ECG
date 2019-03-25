@@ -1,2 +1,2 @@
 # ECG
-Bluetooth LE ECG Device source code
+Bluetooth LE ECG Device App source code
